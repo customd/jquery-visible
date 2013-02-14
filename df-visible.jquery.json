@@ -1,0 +1,42 @@
+{
+	"name"			: "df-visible",
+	"version"		: "1.0.0",
+	"title"			: "Element Onscreen Visibility",
+	"author"		: {
+		"name"	: "Team DF",
+		"email"	: "plugins@teamdf.com",
+		"url"	: "http://opensource.teamdf.com/"
+	},
+	"maintainers"	: [
+		{
+			"name"	: "Sam Sehnert",
+			"email"	: "sam@teamdf.com"
+		}
+	],
+	"description"	: "Quickly check if an element is within the browsers visible viewport, regardless of scroll position. If a user can see this element, the function will return true.",
+	"keywords"		: [
+		"list",
+		"floating",
+		"header",
+		"fixed",
+		"scroll",
+		"visible",
+		"ui"
+	],
+	"homepage"		: "https://github.com/teamdf/jquery-visible/",
+	"docs"			: "http://www.teamdf.com/web/jquery-element-onscreen-visibility/194/",
+	"demo"			: "http://opensource.teamdf.com/visible/examples/demo-basic.html",
+	"files"			: [
+		"jquery.visible.js",
+		"jquery.visible.min.js"
+	],
+	"dependancies"	: {
+		"jquery" : ">1.6.0"
+	},
+	"licenses"		: [
+		{
+		    "type": "MIT",
+		    "url": "http://opensource.teamdf.com/license/"
+		}
+	]
+}
