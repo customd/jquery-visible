@@ -19,9 +19,10 @@
 	    	_top			= $t.offset().top,
 	    	_bottom			= _top + $t.height(),
 	    	compareTop		= partial === true ? _bottom : _top,
-	    	compareBottom	= partial === true ? _top : _bottom;
+	    	compareBottom	= partial === true ? _top : _bottom,
+	    	clientSize              = this.offsetWidth * this.offsetHeight;
 		
-		return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+		return !!clientSize && ((compareBottom <= viewBottom) && (compareTop >= viewTop));
     };
     
 })(jQuery);
