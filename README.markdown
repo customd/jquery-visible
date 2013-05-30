@@ -16,7 +16,7 @@ This basic check will return `true` if the entire element is visible to the user
 
 If you'd like to check for ANY PART of the element, you can use the following:
 
-	$('#element').list( true );
+	$('#element').visible( true );
 
 The plugin ignores the elements visibility. E.g., `display:none`, `visibility: hidden`, `offsetWidth` or `offsetHeight` is 0). 
 To filter on css visibility, you can use the jQuery `:visible` selector:
