@@ -18,11 +18,16 @@ If you'd like to check for ANY PART of the element, you can use the following:
 
 	$('#element').visible( true );
 
-The plugin ignores the elements visibility. E.g., `display:none`, `visibility: hidden`, `offsetWidth` or `offsetHeight` is 0). 
+The plugin ignores the elements visibility by default. E.g., `display:none`, `visibility: hidden`, `offsetWidth` or `offsetHeight` is 0). 
 To filter on css visibility, you can use the jQuery `:visible` selector:
 
 	$('#element:visible').visible();
 
+Optionally, you can sepecify a second parameter to the `.visible` plugin, which will check whether the element is visible, as well as
+whether it's within the viewport too.
+
+	$('#element:visible').visible( false, true );
+	
 
 Demos
 -----

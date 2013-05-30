@@ -21,7 +21,7 @@
 	    	_bottom			= _top + $t.height(),
 	    	compareTop		= partial === true ? _bottom : _top,
 	    	compareBottom	= partial === true ? _top : _bottom,
-	    	clientSize		= hidden === false ? t.offsetWidth * t.offsetHeight : true;
+	    	clientSize		= hidden === true ? t.offsetWidth * t.offsetHeight : true;
 		
 		return !!clientSize && ((compareBottom <= viewBottom) && (compareTop >= viewTop));
     };
