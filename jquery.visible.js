@@ -10,9 +10,10 @@
 	 *		 the user visible viewport of a web browser.
 	 *		 only accounts for vertical position, not horizontal.
 	 */
-	$.fn.visible = function(partial){
+	$.fn.visible = function(partial,hidden){
 		
-	    var $t				= $(this),
+	    var $t				= $(this).eq(0),
+	    	t				= $t.get(0),
 	    	$w				= $(window),
 	    	viewTop			= $w.scrollTop(),
 	    	viewBottom		= viewTop + $w.height(),
@@ -20,7 +21,7 @@
 	    	_bottom			= _top + $t.height(),
 	    	compareTop		= partial === true ? _bottom : _top,
 	    	compareBottom	= partial === true ? _top : _bottom,
-	    	clientSize              = this.offsetWidth * this.offsetHeight;
+	    	clientSize		= hidden === false ? t.offsetWidth * t.offsetHeight : true;
 		
 		return !!clientSize && ((compareBottom <= viewBottom) && (compareTop >= viewTop));
     };
