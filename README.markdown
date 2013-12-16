@@ -27,7 +27,12 @@ Optionally, you can sepecify a second parameter to the `.visible` plugin, which 
 whether it's within the viewport too.
 
 	$('#element:visible').visible( false, true );
-	
+
+Optionally, you can add a third parameter to specify the direction to check for visibility. This can either be 'horizontal', 'vertical' or 'both'.
+Default is to 'both'.
+
+    $('#element').visible( false, false, 'horizontal' );
+
 
 Demos
 -----
@@ -40,9 +45,3 @@ See the blog article:
 
 - [Checking if an element is visible on-screen using jQuery](http://www.teamdf.com/web/jquery-element-onscreen-visibility/194/)
 
-
-Limitations
------------
-
-Currently the plugin only checks for vertical positioning and scroll. We're planning on adding horizontal support soon, 
-with the ability to optionally run the check on horizontal, vertical or both planes.
