@@ -45,3 +45,8 @@ See the blog article:
 
 - [Checking if an element is visible on-screen using jQuery](http://www.teamdf.com/web/jquery-element-onscreen-visibility/194/)
 
+
+Limitations
+-----------
+
+Currently, this plugin will not check for visibility in nested scrollable areas, only on the main viewport (window object).
