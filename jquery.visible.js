@@ -10,11 +10,11 @@
      *       the user visible viewport of a web browser.
      *       only accounts for vertical position, not horizontal.
      */
+    var $w = $(window);
     $.fn.visible = function(partial,hidden,direction){
 
         var $t              = this.eq(0),
             t               = $t.get(0),
-            $w              = $(window),
             viewTop         = $w.scrollTop(),
             viewBottom      = viewTop + $w.height(),
             viewLeft        = $w.scrollLeft(),
