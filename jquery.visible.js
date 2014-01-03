@@ -27,10 +27,10 @@
 
             // Use this native browser method, if available.
             var rec = t.getBoundingClientRect(),
-                tViz = rec.top    >= 0 && rec.top    < vpHeight,
-                bViz = rec.bottom >= 0 && rec.bottom < vpHeight,
-                lViz = rec.left   >= 0 && rec.left   < vpWidth,
-                rViz = rec.right  >= 0 && rec.right  < vpWidth,
+                tViz = rec.top    >= 0 && rec.top    <  vpHeight,
+                bViz = rec.bottom >  0 && rec.bottom <= vpHeight,
+                lViz = rec.left   >= 0 && rec.left   <  vpWidth,
+                rViz = rec.right  >  0 && rec.right  <= vpWidth,
                 vVisible   = partial ? tViz || bViz : tViz && bViz,
                 hVisible   = partial ? lViz || lViz : lViz && rViz;
 
