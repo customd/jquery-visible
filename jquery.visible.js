@@ -12,7 +12,7 @@
      */
     $.fn.visible = function(partial,hidden,direction){
 
-        var $t              = $(this).eq(0),
+        var $t              = this.eq(0),
             t               = $t.get(0),
             $w              = $(window),
             viewTop         = $w.scrollTop(),
