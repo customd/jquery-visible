@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+<title>Benchmarks</title>
+<style type="text/css">
+
+.fixed{
+    position: fixed;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+}
+.abs {
+    position:absolute;
+    width:10px;
+    height:10px;
+}
+.absx1 { top:-100px; }
+.absx2 { top:-1px; }
+.absx3 { top:1px; }
+.absx4 { bottom:1px; }
+.absx5 { bottom:-100px; }
+.absy1 { left:-100px; }
+.absy2 { left:-1px; }
+.absy3 { left:1px; }
+.absy4 { right:1px; }
+.absy5 { right:-100px; }
+
+.ib,.fl{
+    width:500px;
+    height:500px;
+}
+
+.ib{
+    display:inline-block;
+}
+.fl{
+    float:left;
+}
+
+</style>
+</head>
+<body>
+<h1>Benchmarks</h1>
+
+<div id="results"></div>
+
+<div id="fixed">
+
+    <div class="test-div abs absx1 absy1"></div>
+    <div class="test-div abs absx2 absy1"></div>
+    <div class="test-div abs absx3 absy1"></div>
+    <div class="test-div abs absx4 absy1"></div>
+    <div class="test-div abs absx5 absy1"></div>
+
+    <div class="test-div abs absx1 absy2"></div>
+    <div class="test-div abs absx2 absy2"></div>
+    <div class="test-div abs absx3 absy2"></div>
+    <div class="test-div abs absx4 absy2"></div>
+    <div class="test-div abs absx5 absy2"></div>
+
+    <div class="test-div abs absx1 absy3"></div>
+    <div class="test-div abs absx2 absy3"></div>
+    <div class="test-div abs absx3 absy3"></div>
+    <div class="test-div abs absx4 absy3"></div>
+    <div class="test-div abs absx5 absy3"></div>
+
+    <div class="test-div abs absx1 absy4"></div>
+    <div class="test-div abs absx2 absy4"></div>
+    <div class="test-div abs absx3 absy4"></div>
+    <div class="test-div abs absx4 absy4"></div>
+    <div class="test-div abs absx5 absy4"></div>
+
+    <div class="test-div abs absx1 absy5"></div>
+    <div class="test-div abs absx2 absy5"></div>
+    <div class="test-div abs absx3 absy5"></div>
+    <div class="test-div abs absx4 absy5"></div>
+    <div class="test-div abs absx5 absy5"></div>
+
+</div>
+
+<div class="test-div ib"></div><div class="test-div ib"></div><div class="test-div ib"></div><div class="test-div ib"></div><div class="test-div ib"></div>
+<div class="test-div ib"></div><div class="test-div ib"></div><div class="test-div ib"></div><div class="test-div ib"></div><div class="test-div ib"></div>
+<div class="test-div ib"></div><div class="test-div ib"></div><div class="test-div ib"></div><div class="test-div ib"></div><div class="test-div ib"></div>
+<div class="test-div ib"></div><div class="test-div ib"></div><div class="test-div ib"></div><div class="test-div ib"></div><div class="test-div ib"></div>
+<div class="test-div ib"></div><div class="test-div ib"></div><div class="test-div ib"></div><div class="test-div ib"></div><div class="test-div ib"></div>
+
+<div class="test-div fl"></div><div class="test-div fl"></div><div class="test-div fl"></div><div class="test-div fl"></div><div class="test-div fl"></div>
+<div class="test-div fl"></div><div class="test-div fl"></div><div class="test-div fl"></div><div class="test-div fl"></div><div class="test-div fl"></div>
+<div class="test-div fl"></div><div class="test-div fl"></div><div class="test-div fl"></div><div class="test-div fl"></div><div class="test-div fl"></div>
+<div class="test-div fl"></div><div class="test-div fl"></div><div class="test-div fl"></div><div class="test-div fl"></div><div class="test-div fl"></div>
+<div class="test-div fl"></div><div class="test-div fl"></div><div class="test-div fl"></div><div class="test-div fl"></div><div class="test-div fl"></div>
+
+<script src="jquery-1.10.2.min.js"></script>
+<script src="../jquery.visible.js"></script>
+
+<script>
+
+var $divs = $('.test-div');
+
+function run(partial,hidden,direction){
+    var start = Date.now();
+    var count = 0;
+    for (var i=0; i<100; i++){
+        $divs.each(function(){
+            $(this).visible(partial,hidden,direction);
+            count++;
+        });
+    }
+    var end = Date.now();
+    return 'Took '+(end-start)+' milliseconds to run visible('+Array.prototype.join.call(arguments,', ')+') '+count+' times.';
+}
+
+var results = [
+    run(),
+    run(true),
+    run(true,true),
+    run(false,true),
+    run(false,false,'vertical'),
+    run(false,false,'horizontal'),
+    run(true,false,'vertical'),
+    run(true,false,'horizontal')
+];
+
+$('#results').html(results.join('<br>'));
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
