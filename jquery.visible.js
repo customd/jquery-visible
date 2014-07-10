@@ -32,7 +32,7 @@
                 lViz = rec.left   >= 0 && rec.left   <  vpWidth,
                 rViz = rec.right  >  0 && rec.right  <= vpWidth,
                 vVisible   = partial ? tViz || bViz : tViz && bViz,
-                hVisible   = partial ? lViz || lViz : lViz && rViz;
+                hVisible   = partial ? lViz || rViz : lViz && rViz;
 
             if(direction === 'both')
                 return clientSize && vVisible && hVisible;
