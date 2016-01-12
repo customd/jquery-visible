@@ -43,7 +43,7 @@ The Demos for this plugin live under the examples/ directory. Open them directly
 
 See the blog article:
 
-- [Checking if an element is visible on-screen using jQuery](http://www.teamdf.com/web/jquery-element-onscreen-visibility/194/)
+- [Checking if an element is visible on-screen using jQuery](https://www.customd.com/articles/13/checking-if-an-element-is-visible-on-screen-using-jquery)
 
 
 Limitations
