@@ -1,0 +1,39 @@
+{
+  "name": "jquery-visible",
+  "version": "1.2.0",
+  "description": "Quickly check if an element is within the browsers visible viewport, regardless of scroll position. If a user can see this element, the function will return true.",
+  "main": "jquery.visible.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/customd/jquery-visible.git"
+  },
+  "author": {
+    "name"  : "Sam Sehnert",
+    "email" : "sam@customd.com",
+    "homepage": "https://www.customd.com/articles/13/checking-if-an-element-is-visible-on-screen-using-jquery"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/customd/jquery-visible/issues"
+  },
+  "homepage": "https://github.com/customd/jquery-visible#readme",
+  "keywords": [
+    "visible",
+    "viewport",
+    "visibility",
+    "view",
+    "scroll",
+    "display",
+    "ui",
+    "helper",
+    "element",
+    "hidden",
+    "hide"
+  ]
+}
