@@ -23,7 +23,7 @@ To filter on css visibility, you can use the jQuery `:visible` selector:
 
 	$('#element:visible').visible();
 
-Optionally, you can sepecify a second parameter to the `.visible` plugin, which will check whether the element is visible, as well as
+Optionally, you can specify a second parameter to the `.visible` plugin, which will check whether the element is visible, as well as
 whether it's within the viewport too.
 
 	$('#element:visible').visible( false, true );
