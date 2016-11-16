@@ -10,25 +10,32 @@
      *       the user visible viewport of a web browser.
      *       only accounts for vertical position, not horizontal.
      */
-    var $w = $(window);
-    $.fn.visible = function(partial,hidden,direction){
+    $.fn.visible = function(partial,hidden,direction,container){
 
         if (this.length < 1)
             return;
 
-        var $t        = this.length > 1 ? this.eq(0) : this,
-            t         = $t.get(0),
-            vpWidth   = $w.width(),
-            vpHeight  = $w.height(),
-            direction = (direction) ? direction : 'both',
-            clientSize = hidden === true ? t.offsetWidth * t.offsetHeight : true;
+        var $t          = this.length > 1 ? this.eq(0) : this,
+						isContained = typeof container !== 'undefined' && container !== null,
+						$w				  = isContained ? $(container) : $(window),
+						wTop        = isContained ? $w.position().top : 0,
+            t           = $t.get(0),
+            vpWidth     = $w.outerWidth(),
+            vpHeight    = $w.outerHeight(),
+            direction   = (direction) ? direction : 'both',
+            clientSize  = hidden === true ? t.offsetWidth * t.offsetHeight : true;
 
         if (typeof t.getBoundingClientRect === 'function'){
 
             // Use this native browser method, if available.
             var rec = t.getBoundingClientRect(),
-                tViz = rec.top    >= 0 && rec.top    <  vpHeight,
-                bViz = rec.bottom >  0 && rec.bottom <= vpHeight,
+                tViz = isContained ?
+												rec.top - wTop >= 0 && rec.top < vpHeight + wTop :
+												(rec.top >= 0 && rec.top < vpHeight),
+                bViz = isContained ?
+												rec.bottom - wTop > 0 && rec.bottom <= vpHeight + wTop :
+												(rec.bottom > 0 && rec.bottom <= vpHeight),
+
                 lViz = rec.left   >= 0 && rec.left   <  vpWidth,
                 rViz = rec.right  >  0 && rec.right  <= vpWidth,
                 vVisible   = partial ? tViz || bViz : tViz && bViz,
@@ -42,14 +49,14 @@
                 return clientSize && hVisible;
         } else {
 
-            var viewTop         = $w.scrollTop(),
+            var viewTop 				= isContained ? 0 : wTop,
                 viewBottom      = viewTop + vpHeight,
                 viewLeft        = $w.scrollLeft(),
                 viewRight       = viewLeft + vpWidth,
-                offset          = $t.offset(),
-                _top            = offset.top,
+                position          = $t.position(),
+                _top            = position.top,
                 _bottom         = _top + $t.height(),
-                _left           = offset.left,
+                _left           = position.left,
                 _right          = _left + $t.width(),
                 compareTop      = partial === true ? _bottom : _top,
                 compareBottom   = partial === true ? _top : _bottom,

@@ -58,7 +58,7 @@
 
 			// Helper visible check funtion
 			function isVisible(elem, heading, container) {
-				var isVisible =  container !== null ? $(elem).visible(false, false, 'both', container) : $(elem).visible(),
+				var isVisible = typeof container !== 'undefined' && container !== null ? $(elem).visible(false, false, 'both', container) : $(elem).visible(),
 						$heading = $(heading);
 
 				$heading.find('span').text(isVisible);
