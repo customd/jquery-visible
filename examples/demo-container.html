@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Demo Container</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.min.css">
+		<style>
+
+			.callout.fixed {
+				height: 200px;
+				overflow-y: scroll;
+			}
+
+		</style>
+	</head>
+	<body>
+
+	<div class="row">
+		<div class="column medium-8 medium-centered">
+			<h1>Visibility Test</h1>
+			<div class="row">
+				<div class="columns medium-6">
+					<div class="callout">
+						<h5 id="heading1">Link in container: <span></span></h5>
+						<button onClick="isVisible('#item1', '#heading1', '#container')" class="button">Visible?</button>
+					</div>
+				</div>
+				<div class="columns medium-6">
+					<div class="callout">
+						<h5 id="heading2">Bottom Image: <span></span></h5>
+						<button onClick="isVisible('#item2', '#heading2')" class="button">Visible?</button>
+					</div>
+				</div>
+			</div>
+			<div id="container" class="callout fixed">
+				<h5>This is a callout.</h5>
+				<p>It has an easy to override visual style, and is appropriately subdued.</p>
+				<p>Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam commodo suscipit quam. Praesent nec nisl a purus blandit viverra. Fusce vulputate eleifend sapien.</p>
+				<p>Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam commodo suscipit quam. Praesent nec nisl a purus blandit viverra. Fusce vulputate eleifend sapien.</p>
+				<a href="#" id="item1">It's dangerous to go alone, take this.</a>
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<img id="item2" src="//placehold.it/300x300" alt="placeholder">
+		</div>
+	</div>
+
+
+
+		<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.min.js"></script>
+		<script type="text/javascript" src="../jquery.visible.js"></script>
+		<script>
+
+			$(document).foundation();
+
+			// Helper visible check funtion
+			function isVisible(elem, heading, container) {
+				var isVisible = typeof container !== 'undefined' && container !== null ? $(elem).visible(false, false, 'both', container) : $(elem).visible(),
+						$heading = $(heading);
+
+				$heading.find('span').text(isVisible);
+
+			}
+
+
+		</script>
+	</body>
+</html>
