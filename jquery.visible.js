@@ -10,19 +10,22 @@
      *       the user visible viewport of a web browser.
      *       only accounts for vertical position, not horizontal.
      */
+    var $w=$(window);
     $.fn.visible = function(partial,hidden,direction,container){
 
         if (this.length < 1)
             return;
-
+	
+	// Set direction default to 'both'.
+	direction = direction || 'both';
+	    
         var $t          = this.length > 1 ? this.eq(0) : this,
 						isContained = typeof container !== 'undefined' && container !== null,
-						$w				  = isContained ? $(container) : $(window),
-						wPosition        = isContained ? $w.position() : 0,
+						$c				  = isContained ? $(container) : $w,
+						wPosition        = isContained ? $c.position() : 0,
             t           = $t.get(0),
-            vpWidth     = $w.outerWidth(),
-            vpHeight    = $w.outerHeight(),
-            direction   = (direction) ? direction : 'both',
+            vpWidth     = $c.outerWidth(),
+            vpHeight    = $c.outerHeight(),
             clientSize  = hidden === true ? t.offsetWidth * t.offsetHeight : true;
 
         if (typeof t.getBoundingClientRect === 'function'){
@@ -56,7 +59,7 @@
 
             var viewTop 				= isContained ? 0 : wPosition,
                 viewBottom      = viewTop + vpHeight,
-                viewLeft        = $w.scrollLeft(),
+                viewLeft        = $c.scrollLeft(),
                 viewRight       = viewLeft + vpWidth,
                 position          = $t.position(),
                 _top            = position.top,
