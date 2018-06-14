@@ -8,7 +8,7 @@
      * @author Sam Sehnert
      * @desc A small plugin that checks whether elements are within
      *       the user visible viewport of a web browser.
-     *       only accounts for vertical position, not horizontal.
+     *       can accounts for vertical position, horizontal, or both
      */
     var $w=$(window);
     $.fn.visible = function(partial,hidden,direction,container){
